@@ -1,11 +1,10 @@
 import json
-from typing import Union
 from db.db_mysql import get_connection
 from pydantic import BaseModel
 
 class TextItem(BaseModel):
     id: str
-    content: Union[str, list]
+    content: str
 
 def get_all_texts():
     conn = get_connection()
