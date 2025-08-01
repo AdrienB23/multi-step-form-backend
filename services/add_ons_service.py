@@ -11,7 +11,7 @@ class AddOnsItem(BaseModel):
 def get_all_add_ons():
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM t_plan")
+    cursor.execute("SELECT * FROM t_add_ons")
     rows = cursor.fetchall()
     cursor.close()
     conn.close()
