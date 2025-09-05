@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from routers import text_routes, plan_routes, add_ons_routes
+from routers import add_ons_routes
+from modules.plans import plan_router
+from modules.texts import text_router
 
 app = FastAPI()
 
@@ -17,10 +19,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(text_router.router)
+app.include_router(plan_router.router)
+app.include_router(add_ons_routes.router)
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
-
-app.include_router(text_routes.router)
-app.include_router(plan_routes.router)
-app.include_router(add_ons_routes.router)
