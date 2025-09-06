@@ -4,3 +4,5 @@ fastapi~=0.116.1
 starlette~=0.47.1
 pydantic~=2.11.7
 uvicorn[standard]~=0.34.3
+sqlalchemy~=2.0.43
+pydantic_settings~=2.10.1
