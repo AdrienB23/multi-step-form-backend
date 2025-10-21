@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from routers import add_ons_routes
+from modules.add_ons import add_ons_router
 from modules.plans import plan_router
 from modules.texts import text_router
 
@@ -21,7 +21,7 @@ app.add_middleware(
 
 app.include_router(text_router.router)
 app.include_router(plan_router.router)
-app.include_router(add_ons_routes.router)
+app.include_router(add_ons_router.router)
 
 @app.get("/")
 async def root():
